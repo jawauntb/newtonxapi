@@ -1,9 +1,9 @@
 package com.Beans;
 
 public class User {
-	int user_id;
-	String first_name;
-	String last_name;
+	private int user_id;
+	private String first_name;
+	private String last_name;
 	
 	public User (String first, String last) {
 		this.first_name = first;

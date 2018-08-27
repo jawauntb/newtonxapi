@@ -1,14 +1,37 @@
 package com.newtonxproject.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User")
+
 public class User {
 	//data members
-	private int user_id = 0;
+	@Id
+	@Column(name = "user_id")
+	@SequenceGenerator(sequenceName="USER_SEQ", name="USER_SEQ")
+	@GeneratedValue(generator="USER_SEQ", strategy=GenerationType.SEQUENCE)
+	private Integer user_id = 0;
+	
+	@Column(name="first_name")
 	private String first_name = "";
+	
+	@Column(name="last_name")
 	private String last_name = "";
+	
+	@Column(name="whole_name")
 	private String whole_name = ""; 
 
 	//complete constructor
 	public User (String first, String last, int user_id) {
+		super();
 		this.first_name = first;
 		this.last_name = last;
 		this.user_id = user_id;
@@ -16,18 +39,21 @@ public class User {
 
 	//constructor that will be used most often	
 	public User (String first, String last) {
+		super();
 		this.first_name = first;
 		this.last_name = last;
 	}
 	
 	//blank constructor for empty object
-	public User () {}
+	public User () {		
+		super();
+	}
 	
 	//getter for user id
-	public int getUser_id() {return user_id;}
+	public Integer getUser_id() {return user_id;}
 
 	//setter for user id
-	public void setUser_id(int user_id) {this.user_id = user_id;}
+	public void setUser_id(Integer user_id) {this.user_id = user_id;}
 
 	//getter for user first name
 	public String getFirst_name() {return first_name;}

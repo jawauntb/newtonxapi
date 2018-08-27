@@ -1,11 +1,11 @@
-package com;
+package com.newtonxproject.util;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import com.Beans.User;
+import com.newtonxproject.beans.User;
 
 
 /* get_all_users; get_user_by_name; get_user_by_id; post_new_user(JSON); 

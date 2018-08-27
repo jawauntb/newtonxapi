@@ -1,13 +1,10 @@
-package com.newtonxproject.util;
+package com.newtonxproject.services;
 import com.newtonxproject.beans.User;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Path("/users")
 public class UserCrudService {
@@ -16,8 +13,8 @@ public class UserCrudService {
  
     @GET
     @Path("/getUser")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public User getUserByuserId(@QueryParam("user_id") Integer user_id) {
+    @Produces({ MediaType.APPLICATION_JSON})
+    public User getUserByUserId(@QueryParam("user_id") Integer user_id) {
         if (userList.containsKey(user_id)) {
             return userList.get(user_id);
         } else {
@@ -28,7 +25,7 @@ public class UserCrudService {
     
     @GET
     @Path("/getAllUsers")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Produces({ MediaType.APPLICATION_JSON})
     public Map<Integer, User> getAllUsers() {
         Map<Integer, User> userMap = new HashMap<Integer, User>();
        
@@ -47,7 +44,7 @@ public class UserCrudService {
     
     @POST
     @Path("/adduser")
-    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Consumes({ MediaType.APPLICATION_JSON,})
     public Response addUser(User user) {
         if (null != userList.get(user.getUser_id())) {
             return Response
@@ -62,7 +59,7 @@ public class UserCrudService {
     
 	@PUT
 	@Path("/updateUser")
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Consumes({ MediaType.APPLICATION_JSON})
 	public Response updateUser(User u) {
 
 		System.out.println("*** Calling  updateUser ***");

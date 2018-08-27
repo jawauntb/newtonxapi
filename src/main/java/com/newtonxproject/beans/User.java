@@ -5,13 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name="User")
-
 public class User {
 	//data members
 	@Id
@@ -30,7 +30,7 @@ public class User {
 	private String whole_name = ""; 
 
 	//complete constructor
-	public User (String first, String last, int user_id) {
+	public User (String first, String last, Integer user_id) {
 		super();
 		this.first_name = first;
 		this.last_name = last;
